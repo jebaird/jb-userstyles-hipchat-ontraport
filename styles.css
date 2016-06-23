@@ -1,0 +1,18 @@
+ @-moz-document domain("hipchat.com") {
+  body,
+  #hipchat {
+    font-family: verdana, sans-serif;
+    height: 100%;
+    width: 100%;
+    min-width: 720px;
+    transition: 0.5s -webkit-filter linear, 0.5s filter linear;
+  }
+
+  .hc-textwrapper #hc-message-input{ 
+   font-size: 16px;
+  }
+  #hipchat .hc-chat-row div {
+    font-size: 16px
+  }
+
+}
