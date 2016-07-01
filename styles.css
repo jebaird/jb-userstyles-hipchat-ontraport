@@ -1,18 +1,145 @@
  @-moz-document domain("hipchat.com") {
-  body,
+
+
+
+
+body,
   #hipchat {
-    font-family: verdana, sans-serif;
+    font-family: "open sans",Trebuchet MS, sans-serif;
     height: 100%;
     width: 100%;
     min-width: 720px;
     transition: 0.5s -webkit-filter linear, 0.5s filter linear;
   }
+body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,img,p,pre {
+    font-family: "open sans",Trebuchet MS, sans-serif !important;
+/*     line-height: 1.513 !important; */
+/*     font-size: 15px !important; */
+/*     color: #333; */
+}
 
   .hc-textwrapper #hc-message-input{ 
    font-size: 16px;
   }
-  #hipchat .hc-chat-row div {
-    font-size: 16px
-  }
 
+
+.aui-header {
+  background-color: #10293F;
+    border-bottom-color: #10293F;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+    
+}
+
+.aui-header .aui-button.aui-button-primary,
+#hipchat .hc-tab .hc-badge.hc-mention, body .hc-tab .hc-badge.hc-mention{
+  background-color: #17a4d0;
+}
+
+
+/*side bar
+
+*/
+
+#hipchat .hc-sidebar, body .hc-sidebar {
+  background-color: #10293F;
+    color: #C5D6E4;
+}
+
+
+.hc-chat-panel .hc-chat-scrollbox, .fake-chat-panel .hc-chat-scrollbox {
+  box-shadow: inset 2px 0px 15px rgba( 0,0,0, 0.5 );
+
+}
+
+
+
+#hipchat .hc-tab > a, body .hc-tab > a, #hipchat .hc-roster > a, body .hc-roster > a {
+  color: #C5D6E4;
+}
+/* make icons match their parent color */
+#hipchat .hc-tab .aui-icon,
+body .hc-tab .aui-icon,
+#hipchat .hc-roster .aui-icon,
+body .hc-roster .aui-icon {
+  color: inherit !important;
+}
+#hipchat .hc-tab:hover > a, body .hc-tab:hover > a,
+#hipchat .hc-tab.aui-nav-selected > a, 
+body .hc-tab.aui-nav-selected > a {
+  background-color: #17a4d0;
+    color: #fff;
+}
+
+/* colors tab selections
+##################*/
+
+
+/* oranage */
+#hipchat .hc-tab:nth-of-type(1n):hover > a, body .hc-tab:nth-of-type(1n):hover > a,
+#hipchat .hc-tab:nth-of-type(1n).aui-nav-selected > a, body .hc-tab:nth-of-type(1n).aui-nav-selected > a{
+  background-color: #e65100;
+}
+/* pink */
+#hipchat .hc-tab:nth-of-type(2n):hover > a, body .hc-tab:nth-of-type(2n):hover > a,
+#hipchat .hc-tab:nth-of-type(2n).aui-nav-selected > a, body .hc-tab:nth-of-type(2n).aui-nav-selected > a{
+  background-color: #d81b60;
+}
+
+
+/* light green */
+#hipchat .hc-tab:nth-of-type(3n):hover > a, body .hc-tab:nth-of-type(3n):hover > a,
+#hipchat .hc-tab:nth-of-type(3n).aui-nav-selected > a, body .hc-tab:nth-of-type(3n).aui-nav-selected > a{
+  background-color: #558b2f;
+}
+
+
+/* purpule */
+#hipchat .hc-tab:nth-of-type(4n):hover > a, body .hc-tab:nth-of-type(4n):hover > a,
+#hipchat .hc-tab:nth-of-type(4n).aui-nav-selected > a, body .hc-tab:nth-of-type(4n).aui-nav-selected > a{
+  background-color: #4527A0;
+}
+
+/* red */
+#hipchat .hc-tab:nth-of-type(5n):hover > a, body .hc-tab:nth-of-type(5n):hover > a,
+#hipchat .hc-tab:nth-of-type(5n).aui-nav-selected > a, body .hc-tab:nth-of-type(5n).aui-nav-selected > a{
+  background-color: #D32F2F;
+}
+
+/* light blue */
+#hipchat .hc-tab:nth-of-type(6n):hover > a, body .hc-tab:nth-of-type(6n):hover > a,
+#hipchat .hc-tab:nth-of-type(6n).aui-nav-selected > a, body .hc-tab:nth-of-type(6n).aui-nav-selected > a{
+  background-color: #17A4D0;
+}
+
+
+/* mentions and new messages */
+#hipchat .hc-tab .hc-badge, body .hc-tab .hc-badge {
+  background-color: #777;
+}
+
+#hipchat .hc-tab .hc-badge.hc-mention, body .hc-tab .hc-badge.hc-mention,
+.aui-header .aui-button:hover {
+    background-color: #17A4D0;
+    color: #C5D6E4;
+}
+/* end of mentions and new messages */
+
+/* sidebar sections 
+
+private PM and rooms
+*/
+
+body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
+background-color: #17A4D0;
+    
+}
+
+
+
+
+/* chat messages */
+
+.hc-chat-row:hover {
+  color: #000;
+}
 }
