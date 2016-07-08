@@ -1,10 +1,9 @@
-Ontraport branded Hip chat
+ONTRAPORT branded Hip chat
 ============
-Hosted at [userstyles.org] (http://userstyles.org/styles/84237/hipchat-dark)
+Hosted at [userstyles.org](https://userstyles.org/styles/129971/hipchat-ontraport)
 
-Dark theme for hipchat web client inspired by the Vibrant Ink theme for Notepad++.
+Dark theme for hipchat web client inspired [ONTRAPORT](http://ontraport.com) colors.
 
-###Before & After
+### Preview
 
- [![before screenshot] (https://raw.github.com/bpruitt-goddard/HipChat-Dark/master/images/before_th.png)] (https://raw.github.com/bpruitt-goddard/HipChat-Dark/master/images/before.png)
- [![after screenshot] (https://raw.github.com/bpruitt-goddard/HipChat-Dark/master/images/after_th.png)] (https://raw.github.com/bpruitt-goddard/HipChat-Dark/master/images/after.png)
+![After ](https://raw.github.com/jebaird/jb-userstyles-hipchat-ontraport/master/images/after.png)
