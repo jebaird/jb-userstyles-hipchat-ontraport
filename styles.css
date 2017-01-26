@@ -15,9 +15,22 @@ body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,img,p,pre {
     color: #111;
 }
 
-.hc-textwrapper #hc-message-input{ 
-   font-size: 16px;
+
+/* utils
+###################################*/
+@keyframes fadein {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
 }
+
+
+/* ### end of utils */
 
 
 /*app header
@@ -76,7 +89,7 @@ body .aui-page-header.room-header .page-header-icon {
 
 
 /*side bar
-
+#####################################
 */
 
 #hipchat .hc-sidebar, 
@@ -100,12 +113,47 @@ body .hc-tab .hc-badge.hc-mention {
 }
 
 
+/* links in the side bar for rooms and people */
 #hipchat .hc-tab > a, 
 body .hc-tab > a, 
 #hipchat .hc-roster > a, 
 body .hc-roster > a {
     color: #C5D6E4;
 }
+
+
+/* add tooltips for the room names and people on hover, delay about 2 seconds */
+#hipchat .hc-tab a[aria-label]:hover:before, 
+body .hc-tab a[aria-label]:hover:before, 
+#hipchat .hc-roster a[aria-label]:hover:before, 
+body .hc-roster a[aria-label]:hover:before {
+    
+    position: fixed;
+    z-index: 1000;
+    
+    margin-top: -.6em;
+    margin-left: 6em;
+
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    
+    content: attr(aria-label);
+    
+    padding: .57em 1em;
+    background-color: #17a4d0; 
+    color: #fff;
+    
+    opacity: 1;
+    animation: 1s cubic-bezier(1, -0.980, 0.735, 0.045) 0s normal forwards 1 fadein;
+
+    
+    box-shadow: -11px 0px 0em #10293F, 
+                -7px 10px 7px rgba( 0,0,0, 0.6 );
+                
+}
+
+
+
 /* make icons match their parent color */
 #hipchat .hc-tab .aui-icon,
 body .hc-tab .aui-icon,
@@ -217,6 +265,15 @@ body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
 .hc-msg-blue {
 
     box-shadow: inset 3px 0px 3px rgba( 0,0,0, 0.5 );
+}
+
+
+
+/*
+box where you type in your message
+################################*/
+.hc-textwrapper #hc-message-input{ 
+   font-size: 16px;
 }
 
 }
