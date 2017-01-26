@@ -140,7 +140,7 @@ body .hc-roster a[aria-label]:hover:before {
     content: attr(aria-label);
     
     padding: .57em 1em;
-    background-color: #17a4d0; 
+    background-color: inherit; 
     color: #fff;
     
     opacity: 1;
