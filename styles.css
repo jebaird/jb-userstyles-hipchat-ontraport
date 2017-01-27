@@ -112,13 +112,14 @@ body .hc-tab .hc-badge.hc-mention {
     background-color: #17a4d0;
 }
 
-
 /* links in the side bar for rooms and people */
 #hipchat .hc-tab > a, 
 body .hc-tab > a, 
 #hipchat .hc-roster > a, 
 body .hc-roster > a {
     color: #C5D6E4;
+    overflow: visible;
+
 }
 
 
@@ -130,13 +131,17 @@ body .hc-roster a[aria-label]:hover:before {
     
     position: fixed;
     z-index: 1000;
-    
-    margin-top: -.6em;
-    margin-left: 6em;
 
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+     font-size: .7em;
+    margin-top: -2em;
     
+    margin-left: 10em;
+
+
+    border-radius: 3px;
+    
+    box-shadow: -4px 3px 12px rgba( 0,0,0, 0.7 );
+
     content: attr(aria-label);
     
     padding: .57em 1em;
@@ -146,11 +151,9 @@ body .hc-roster a[aria-label]:hover:before {
     opacity: 1;
     animation: 1s cubic-bezier(1, -0.980, 0.735, 0.045) 0s normal forwards 1 fadein;
 
-    
-    box-shadow: -11px 0px 0em #10293F, 
-                -7px 10px 7px rgba( 0,0,0, 0.6 );
-                
 }
+ 
+
 
 
 
@@ -161,7 +164,8 @@ body .hc-tab .aui-icon,
 body .hc-roster .aui-icon {
     color: inherit !important;
 }
-#hipchat .hc-tab:hover > a, body .hc-tab:hover > a,
+#hipchat .hc-tab:hover > a, 
+body .hc-tab:hover > a,
 #hipchat .hc-tab.aui-nav-selected > a, 
 body .hc-tab.aui-nav-selected > a {
     background-color: #17a4d0;
