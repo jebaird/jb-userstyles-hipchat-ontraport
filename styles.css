@@ -1,5 +1,8 @@
 @-moz-document domain("hipchat.com") {
 
+@namespace xlink 'http://www.w3.org/1999/xlink';
+
+
 body,
 #hipchat {
     font-family: "open sans",Trebuchet MS, sans-serif;
@@ -92,67 +95,73 @@ body .aui-page-header.room-header .page-header-icon {
 #####################################
 */
 
+
+/*
+    sample markup
+    
+    ui.aui-nav hc-sidebar-nav hc-sortable hc-people
+        li.aui-nav-heading
+        li.hc-tab - hc-person or hc.room
+            a.aui-nav-item
+                span
+                span.room-name
+            a.hc-tab-close
+
+*/
+
+
 #hipchat .hc-sidebar, 
 body .hc-sidebar {
     background-color: #10293F;
     color: #C5D6E4;
-}
-
-
-.hc-chat-panel .hc-chat-scrollbox, 
-.fake-chat-panel .hc-chat-scrollbox {
-    box-shadow: inset 2px 0px 15px rgba( 0,0,0, 0.5 );
 
 }
 
-
-.aui-header .aui-button.aui-button-primary,
-#hipchat .hc-tab .hc-badge.hc-mention, 
-body .hc-tab .hc-badge.hc-mention {
-    background-color: #17a4d0;
+/* nav headings 
+    IE
+    People
+    Rooms
+#############################*/
+#hipchat .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading, 
+body .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading {
+    padding: 1em .25em;
 }
 
-/* links in the side bar for rooms and people */
-#hipchat .hc-tab > a, 
-body .hc-tab > a, 
-#hipchat .hc-roster > a, 
-body .hc-roster > a {
+#hipchat .hc-tab, 
+body .hc-tab {
     color: #C5D6E4;
-    overflow: visible;
-
 }
 
 
-/* add tooltips for the room names and people on hover, delay about 2 seconds */
-#hipchat .hc-tab a[aria-label]:hover:before, 
-body .hc-tab a[aria-label]:hover:before, 
-#hipchat .hc-roster a[aria-label]:hover:before, 
-body .hc-roster a[aria-label]:hover:before {
+#hipchat .hc-tab a, 
+body .hc-tab a {
+    color: inherit;
     
-    position: fixed;
-    z-index: 1000;
-
-     font-size: .7em;
-    margin-top: -2em;
-    
-    margin-left: 10em;
-
-
-    border-radius: 3px;
-    
-    box-shadow: -4px 3px 12px rgba( 0,0,0, 0.7 );
-
-    content: attr(aria-label);
-    
-    padding: .57em 1em;
-    background-color: inherit; 
-    color: #fff;
-    
-    opacity: 1;
-    animation: 1s cubic-bezier(1, -0.980, 0.735, 0.045) 0s normal forwards 1 fadein;
-
 }
- 
+
+
+
+
+
+ #hipchat .hc-tab .room-name, 
+body .hc-tab .room-name {
+    width: calc(100% - .5em);
+    max-width: calc(100% - .5em);
+}
+
+#hipchat .hc-tab .aui-nav-item, 
+body .hc-tab .aui-nav-item  {
+    
+}
+
+/* hover on nav item */
+#hipchat .hc-tab:hover .aui-nav-item, 
+body .hc-tab:hover .aui-nav-item {
+    padding-right: .5em;
+}
+
+
+
 
 
 
@@ -164,16 +173,100 @@ body .hc-tab .aui-icon,
 body .hc-roster .aui-icon {
     color: inherit !important;
 }
+
+
 #hipchat .hc-tab:hover > a, 
 body .hc-tab:hover > a,
 #hipchat .hc-tab.aui-nav-selected > a, 
 body .hc-tab.aui-nav-selected > a {
-    background-color: #17a4d0;
+
     color: #fff;
+    
+    /* make sure we have a default color, it should get overriden by the theme colors below*/
+    background-color: #17a4d0;
+}
+
+
+/* room type icon */
+
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon,
+body .hc-tab .aui-nav-item .aui-icon{
+    position: absolute;
+/*     display: none; */
+/*     top: .6em; */
+    right: .25em;
+    margin: 0;
+    
+    background-color: inherit;
+/*  opacity: .5; */
+    overflow: visible;
+}
+
+#hipchat .hc-tab :hover .aui-icon,
+body .hc-tab :hover .aui-icon {
+    
+    display: inline-block;
+
+}
+
+
+
+#hipchat .hc-tab-close, 
+body .hc-tab-close {
+    position: absolute;
+    
+    /* remove me when done testing */
+    display: inline-block;
+/*     top: .5em; */
+    top: 0;
+    right: 1em;
+    margin: 0;
+    padding: .25em; 
+    background-color: transparent !important;
+/*  opacity: .5; */
+}
+
+#hipchat .hc-tab :hover .hc-tab-close,
+body .hc-tab :hover .hc-tab-close {
+    
+    display: inline-block;
+
+}
+
+
+/* icon wrapper */
+#hipchat .hc-tab a > span:first-of-type, 
+body .hc-tab a > span:first-of-type {
+/*  position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0; */
+}
+
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon use {
+    overflow: visible;
+    
+    text-indent: 0;
+}
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use[xlink|href="#icon-available-selected"]:before,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon use[xlink|href="#icon-available-selected"]:before {
+    content: 'Hellow';
+    display: block;
+    background: green;
+    
+    padding: 1em;
+    position: absolute;
+    z-index: 1;
 }
 
 /* colors tab selections
-##################*/
+######################################*/
 
 
 /* oranage */
@@ -230,6 +323,10 @@ body .hc-tab:nth-of-type(6n).aui-nav-selected > a {
 body .hc-tab .hc-badge {
     background-color: #777;
     font-weight: 600;
+    right: 0;
+    border-radius: 50%;
+    font-size: 10px;
+    top: .5em;;
 }
 
 #hipchat .hc-tab .hc-badge.hc-mention, 
@@ -238,6 +335,16 @@ body .hc-tab .hc-badge.hc-mention,
     background-color: #17A4D0;
     color: #C5D6E4;
 }
+
+/* mentions and alerts 
+    ( 2 )
+*/
+.aui-header .aui-button.aui-button-primary,
+#hipchat .hc-tab .hc-badge.hc-mention, 
+body .hc-tab .hc-badge.hc-mention {
+    background-color: #17a4d0;
+}
+
 /* end of mentions and new messages */
 
 /* sidebar sections 
@@ -269,6 +376,14 @@ body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
 .hc-msg-blue {
 
     box-shadow: inset 3px 0px 3px rgba( 0,0,0, 0.5 );
+}
+
+
+
+.hc-chat-panel .hc-chat-scrollbox, 
+.fake-chat-panel .hc-chat-scrollbox {
+    box-shadow: inset 2px 0px 15px rgba( 0,0,0, 0.5 );
+
 }
 
 
