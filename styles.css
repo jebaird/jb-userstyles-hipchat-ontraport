@@ -246,24 +246,41 @@ body .hc-tab a > span:first-of-type {
 }
 
 
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon use {
-    overflow: visible;
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon {
     
-    text-indent: 0;
+    width: 5px;
+    height: 34px;
+    top: 0;
+    right: auto;
+    left: -0px;
+}
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use {
+    display: none;
 }
 
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use[xlink|href="#icon-available-selected"]:before,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon use[xlink|href="#icon-available-selected"]:before {
-    content: 'Hellow';
-    display: block;
-    background: green;
-    
-    padding: 1em;
-    position: absolute;
-    z-index: 1;
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat {
+    background: #67AB49;
 }
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away {
+    background: #F79232;
+}
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd {
+    background: #C21D02;
+}
+
+
+
 
 /* colors tab selections
 ######################################*/
