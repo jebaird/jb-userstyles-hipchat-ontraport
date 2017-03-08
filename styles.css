@@ -1,8 +1,5 @@
 @-moz-document domain("hipchat.com") {
 
-@namespace xlink 'http://www.w3.org/1999/xlink';
-
-
 body,
 #hipchat {
     font-family: "open sans",Trebuchet MS, sans-serif;
@@ -18,6 +15,113 @@ body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,img,p,pre {
     color: #111;
 }
 
+
+
+/*
+decent scroll ontraport styles
+##############################################*/
+
+
+/*
+    decentscroll
+    normalize scrollbar css for chrome and ie. Sorry no firefox supports
+    https://github.com/jebaird/decentscroll
+    @author Jesse Baird <jebaird@gmail.com>
+    @license MIT
+
+    
+ */
+
+:root {
+  /* this is the default color when the track-background is not in play */
+  /* #chrome only */
+  /* #chrome only */
+  /*states */
+  /* 
+        this is the default color of the track when the scroll-bark-track-piece-background is not in play 
+        IE: this is what is used for the track BG
+    */
+  /* #chrome only */
+  /* #chrome only */
+  /* 
+        this is the piece of the track that is not covered by the scrollbar-thumb
+        IE doesn't support this prop
+    */
+  /*
+        this is the marker in the track
+        IE only supports changing the background color
+     */
+  /* #chrome only */
+}
+
+/*
+    decentscroll
+    normalize scrollbar css for chrome and ie. Sorry does firefox support css styled scrollbars
+    https://github.com/jebaird/decentscroll
+    @author Jesse Baird <jebaird@gmail.com>
+    @license MIT
+
+ */
+
+/* pseudo elements */
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  /*lets treat width and height the same*/
+  height: 10px;
+  border: 1px none red;
+}
+
+::-webkit-scrollbar:hover {
+  background: transparent;
+/*   width: inital; */
+  /*lets treat width and height the same*/
+/*   height: inital; */
+  border: 1px none #B3B3B3;
+}
+
+::-webkit-scrollbar-button {
+  background: transparent;
+  display: none;
+  /* width and height are treated the same when it comes to this element */
+  height: auto;
+  width: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /*width: var(--track-width);*/
+  /*height: var(--track-height);*/
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid #B2B2B2;
+  background: #fff;
+  height: auto;
+  width: auto;
+}
+
+::-webkit-scrollbar-corner {
+  /*    background: var(--track-corner-background);
+    width: var(--track-corner-width);
+    height: var(--track-height-background);*/
+}
+
+::-webkit-resizer {
+  background: inital;
+  /*width: var(--resizer-width);*/
+  /*height: var(--resizer-height);*/
+  display: none;
+}
+
+
+
+/*########### end of decent scroll #################*/
 
 /* utils
 ###################################*/
@@ -46,8 +150,8 @@ body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,img,p,pre {
 }
 
 .aui-header {
-    background-color: #10293F;
-    border-bottom-color: #10293F;
+    background-color: #112A3F;
+    border-bottom-color: #112A3F;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
     
 }
@@ -59,14 +163,401 @@ body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,img,p,pre {
     background: transparent;
 }
 
+/* it's the O for the ontraport inc a the top */
+.hc-lobby .aui-avatar-project {
+    display: none;
+}
+
+
+
+/*side bar
+#####################################
+*/
+
+
+/*
+    sample markup
+    
+    ui.aui-nav hc-sidebar-nav hc-sortable hc-people
+        li.aui-nav-heading
+        li.hc-tab - hc-person or hc.room
+            a.aui-nav-item
+                span
+                span.room-name
+            a.hc-tab-close
+            
+            
+    TODO: switch room name and icon to flex layout
+
+*/
+
+
+#hipchat .hc-sidebar, 
+body .hc-sidebar {
+    background-color: #10293F;
+    color: #C5D6E4;
+
+}
+
+/* nav headings 
+    IE
+    People
+    Rooms
+#############################*/
+#hipchat .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading, 
+body .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading {
+    padding: 1em .25em;
+}
+
+#hipchat .hc-tab, 
+body .hc-tab {
+    color: #E3EBF2;
+}
+
+
+#hipchat .hc-tab a, 
+body .hc-tab a {
+    color: inherit;
+    
+    font-weight: 600;
+    
+}
+
+
+
+
+
+#hipchat .hc-tab .room-name, 
+body .hc-tab .room-name {
+    width: calc(100% - .15em);
+    max-width: calc(100% - .15em);
+    
+    font-weight: 600;
+    
+    
+}
+
+/* need to make more room for the close button for the rooms */
+#hipchat .hc-rooms .hc-tab .room-name, 
+body .hc-rooms .hc-tab .room-name {
+    width: calc(100% - .75em);
+    max-width: calc(100% - .75em);
+}
+
+#hipchat .hc-tab .aui-nav-item, 
+body .hc-tab .aui-nav-item  {
+    
+}
+
+
+/* hover on nav item */
+#hipchat .hc-tab:hover .aui-nav-item, 
+body .hc-tab:hover .aui-nav-item {
+    padding-right: .5em;
+}
+
+
+/* hover on items that have badges */
+#hipchat .hc-tab.hc-has-badge .aui-nav-item, 
+body .hc-tab.hc-has-badge .aui-nav-item {
+    padding-right: 1em;
+}
+
+#hipchat .hc-tab:hover.hc-has-badge .aui-nav-item, 
+body .hc-tab:hover.hc-has-badge .aui-nav-item {
+    padding-right: 1em;
+}
+
+
+
+
+
+/* make icons match their parent color */
+#hipchat .hc-tab .aui-icon,
+body .hc-tab .aui-icon,
+#hipchat .hc-roster .aui-icon,
+body .hc-roster .aui-icon {
+    color: #769BBD;
+}
+
+/* make the icon white on hover */
+#hipchat .hc-tab:hover .aui-icon,
+body .hc-tab:hover .aui-icon {
+    color: #fff;
+}
+
+
+#hipchat .hc-tab:hover > a, 
+body .hc-tab:hover > a,
+#hipchat .hc-tab.aui-nav-selected > a, 
+body .hc-tab.aui-nav-selected > a {
+
+    color: #fff;
+    
+    /* make sure we have a default color, it should get overriden by the theme colors below*/
+    background-color: #17a4d0;
+}
+
+
+/* room type icon 
+
+    icons are either svg or spans
+    
+    
+    svgs are used for the status icons
+    
+    spans are used for the room type icon
+*/
+
+#hipchat .hc-tab .aui-nav-item .aui-icon,
+body .hc-tab .aui-nav-item .aui-icon{
+    position: absolute;
+/*     display: none; */
+    top: .8em;
+    right: .65em;
+    margin: 0;
+    
+    background-color: inherit;
+/*  opacity: .5; */
+    overflow: visible;
+}
+
+#hipchat .hc-tab .aui-nav-item span.aui-icon,
+body .hc-tab .aui-nav-item span.aui-icon {
+    width: .5em;
+    height: .5em;
+}
+
+#hipchat .hc-tab :hover .aui-icon,
+body .hc-tab :hover .aui-icon {
+    
+    display: inline-block;
+
+}
+
+
+/* close icon */
+#hipchat .hc-tab-close, 
+body .hc-tab-close {
+    
+    display: none;
+    
+    position: absolute;
+    
+    top: .25em;
+    
+    background-color: transparent !important;
+    opacity: .7;
+    right: 1.15em;
+}
+
+
+#hipchat .hc-tab :hover .hc-tab-close,
+body .hc-tab :hover .hc-tab-close {
+    
+    display: inline-block;
+
+}
+#hipchat .hc-tab .hc-tab-close:hover,
+body .hc-tab .hc-tab-close:hover {
+    opacity: 1;
+    color: #C21D02;
+    
+}
+
+
+/*
+status icons for DM chat
+######################################*/
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon {
+        position: absolute;
+
+    right: .15em;
+    margin: 0;
+    
+    background-color: inherit;
+
+}
+
+
+
+#hipchat .hc-tab:hover .aui-nav-item .aui-icon.hc-status-icon,
+body .hc-tab:hover .aui-nav-item .aui-icon.hc-status-icon {
+/*     left: -4px;
+    opacity: 1 !important; */
+}
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat {
+/*     background: #99c956; */
+}
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away {
+/*     background: #ff6e40; */
+  opacity: .7;
+}
+
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd {
+/*     background: #b71c1c; */
+opacity: .7;
+}
+
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-mobile,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-mobile {
+/*     background: #ccc; */
+    opacity: .7;
+}
+
+/* off line */
+#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-unknown,
+body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-unknown {
+/*     background: #ccc;
+    opacity: .1; */
+}
+
+
+/* colors tab selections
+######################################*/
+
+/*oranage*/
+#hipchat .hc-tab[draggable]:nth-of-type(1n):hover > a, 
+body .hc-tab[draggable]:nth-of-type(1n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(1n).aui-nav-selected > a, 
+body .hc-tab[draggable]:nth-of-type(1n).aui-nav-selected > a{
+    background-color: #e65100;
+}
+/* pink */
+#hipchat .hc-tab[draggable]:nth-of-type(2n):hover > a,
+body .hc-tab[draggable]:nth-of-type(2n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(2n).aui-nav-selected > a,
+body .hc-tab[draggable]:nth-of-type(2n).aui-nav-selected > a {
+    background-color: #ad1457;
+}
+
+
+/* light green */
+#hipchat .hc-tab[draggable]:nth-of-type(3n):hover > a,
+body .hc-tab[draggable]:nth-of-type(3n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(3n).aui-nav-selected > a,
+body .hc-tab[draggable]:nth-of-type(3n).aui-nav-selected > a {
+    background-color: #77a349;
+}
+
+
+/* purple */
+#hipchat .hc-tab[draggable]:nth-of-type(4n):hover > a,
+body .hc-tab[draggable]:nth-of-type(4n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(4n).aui-nav-selected > a,
+body .hc-tab[draggable]:nth-of-type(4n).aui-nav-selected > a {
+    background-color: #4527A0;
+}
+
+/* red */
+#hipchat .hc-tab[draggable]:nth-of-type(5n):hover > a,
+body .hc-tab[draggable]:nth-of-type(5n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(5n).aui-nav-selected > a,
+body .hc-tab[draggable]:nth-of-type(5n).aui-nav-selected > a {
+    background-color: #D32F2F;
+}
+
+/* light blue */
+#hipchat .hc-tab[draggable]:nth-of-type(6n):hover > a,
+body .hc-tab[draggable]:nth-of-type(6n):hover > a,
+#hipchat .hc-tab[draggable]:nth-of-type(6n).aui-nav-selected > a,
+body .hc-tab[draggable]:nth-of-type(6n).aui-nav-selected > a {
+  background-color: #0089de;
+}
+
+
+/* mentions and new messages */
+#hipchat .hc-tab .hc-badge, 
+body .hc-tab .hc-badge {
+    background-color: #777;
+    color: #fff;
+    font-weight: 600;
+    right: .3em;
+    border-radius: 50%;
+    font-size: .5em;
+    top: 1em;;
+    z-index: 1;
+    min-height: 1.5em;
+    padding: .5em .5em 0;
+    text-align: center;
+}
+
+#hipchat .hc-tab .hc-badge.hc-mention, 
+body .hc-tab .hc-badge.hc-mention,
+.aui-header .aui-button:hover {
+    background-color: #BF360C;
+    color: #C5D6E4;
+}
+
+/* mentions and alerts 
+    ( 2 )
+*/
+.aui-header .aui-button.aui-button-primary,
+#hipchat .hc-tab .hc-badge.hc-mention, 
+body .hc-tab .hc-badge.hc-mention {
+    background-color: #17a4d0;
+    
+    
+}
+
+/* end of mentions and new messages */
+
+
+
+/*
+UNRead scroller
+ */
+
+#hipchat .hc-left-sidebar-col .hc-unread-scroller-bottom.has-mention, 
+body .hc-left-sidebar-col .hc-unread-scroller-bottom.has-mention,
+#hipchat .hc-left-sidebar-col .hc-unread-scroller.has-mention a, 
+body .hc-left-sidebar-col .hc-unread-scroller.has-mention a {
+    background-color: #BF360C;
+}
+
+
+/* sidebar sections 
+
+private PM and rooms
+#########################################
+*/
+
+body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
+    background-color: #17A4D0;
+    
+}
+
+
 
 
 /* chat room header
 ############################ */
 
+#hipchat .hc-main-col .hc-rooms-container .hc-chat-panel-header-container:after, 
+body .hc-main-col .hc-rooms-container .hc-chat-panel-header-container:after {
+/*  
+    border-
+    box-shadow: 2px 2px 4px rgba( 0,0,0, 0.5 ); */
+}
+
 #hipchat .aui-page-header.room-header, 
 body .aui-page-header.room-header {
   background-color: #eee;
+    border-bottom-color: #e0e0e0;
+    
 }
 
 
@@ -91,295 +582,6 @@ body .aui-page-header.room-header .page-header-icon {
 }
 
 
-/*side bar
-#####################################
-*/
-
-
-/*
-    sample markup
-    
-    ui.aui-nav hc-sidebar-nav hc-sortable hc-people
-        li.aui-nav-heading
-        li.hc-tab - hc-person or hc.room
-            a.aui-nav-item
-                span
-                span.room-name
-            a.hc-tab-close
-
-*/
-
-
-#hipchat .hc-sidebar, 
-body .hc-sidebar {
-    background-color: #10293F;
-    color: #C5D6E4;
-
-}
-
-/* nav headings 
-    IE
-    People
-    Rooms
-#############################*/
-#hipchat .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading, 
-body .aui-navgroup-inner .hc-sidebar-nav .aui-nav-heading {
-    padding: 1em .25em;
-}
-
-#hipchat .hc-tab, 
-body .hc-tab {
-    color: #C5D6E4;
-}
-
-
-#hipchat .hc-tab a, 
-body .hc-tab a {
-    color: inherit;
-    
-}
-
-
-
-
-
- #hipchat .hc-tab .room-name, 
-body .hc-tab .room-name {
-    width: calc(100% - .5em);
-    max-width: calc(100% - .5em);
-}
-
-#hipchat .hc-tab .aui-nav-item, 
-body .hc-tab .aui-nav-item  {
-    
-}
-
-/* hover on nav item */
-#hipchat .hc-tab:hover .aui-nav-item, 
-body .hc-tab:hover .aui-nav-item {
-    padding-right: .5em;
-}
-
-
-
-
-
-
-
-/* make icons match their parent color */
-#hipchat .hc-tab .aui-icon,
-body .hc-tab .aui-icon,
-#hipchat .hc-roster .aui-icon,
-body .hc-roster .aui-icon {
-    color: inherit !important;
-}
-
-
-#hipchat .hc-tab:hover > a, 
-body .hc-tab:hover > a,
-#hipchat .hc-tab.aui-nav-selected > a, 
-body .hc-tab.aui-nav-selected > a {
-
-    color: #fff;
-    
-    /* make sure we have a default color, it should get overriden by the theme colors below*/
-    background-color: #17a4d0;
-}
-
-
-/* room type icon */
-
-
-
-#hipchat .hc-tab .aui-nav-item .aui-icon,
-body .hc-tab .aui-nav-item .aui-icon{
-    position: absolute;
-/*     display: none; */
-/*     top: .6em; */
-    right: .25em;
-    margin: 0;
-    
-    background-color: inherit;
-/*  opacity: .5; */
-    overflow: visible;
-}
-
-#hipchat .hc-tab :hover .aui-icon,
-body .hc-tab :hover .aui-icon {
-    
-    display: inline-block;
-
-}
-
-
-
-#hipchat .hc-tab-close, 
-body .hc-tab-close {
-    position: absolute;
-    
-    /* remove me when done testing */
-    display: inline-block;
-/*     top: .5em; */
-    
-    
-    right: 0em;
-     
-    padding: .25em; 
-    background-color: transparent !important;
-/*  opacity: .5; */
-}
-
-#hipchat .hc-tab :hover .hc-tab-close,
-body .hc-tab :hover .hc-tab-close {
-    
-    display: inline-block;
-
-}
-
-
-/* icon wrapper */
-
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon {
-    
-    width: 5px;
-    height: 34px;
-    top: 0;
-    right: auto;
-    left: -0px;
-}
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon use {
-    display: none;
-}
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-chat {
-    background: #67AB49;
-}
-
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-xa,
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-away {
-    background: #F79232;
-}
-
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-dnd {
-    background: #C21D02;
-}
-
-#hipchat .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-mobile,
-body .hc-tab .aui-nav-item .aui-icon.hc-status-icon.icon-mobile {
-    background: #ccc;
-}
-
-
-/* colors tab selections
-######################################*/
-
-
-/* oranage */
-#hipchat .hc-tab:nth-of-type(1n):hover > a, body .hc-tab:nth-of-type(1n):hover > a,
-#hipchat .hc-tab:nth-of-type(1n).aui-nav-selected > a, 
-body .hc-tab:nth-of-type(1n).aui-nav-selected > a{
-    background-color: #e65100;
-}
-/* pink */
-#hipchat .hc-tab:nth-of-type(2n):hover > a,
-body .hc-tab:nth-of-type(2n):hover > a,
-#hipchat .hc-tab:nth-of-type(2n).aui-nav-selected > a,
-body .hc-tab:nth-of-type(2n).aui-nav-selected > a {
-    background-color: #d81b60;
-}
-
-
-/* light green */
-#hipchat .hc-tab:nth-of-type(3n):hover > a,
-body .hc-tab:nth-of-type(3n):hover > a,
-#hipchat .hc-tab:nth-of-type(3n).aui-nav-selected > a,
-body .hc-tab:nth-of-type(3n).aui-nav-selected > a {
-    background-color: #558b2f;
-}
-
-
-/* purple */
-#hipchat .hc-tab:nth-of-type(4n):hover > a,
-body .hc-tab:nth-of-type(4n):hover > a,
-#hipchat .hc-tab:nth-of-type(4n).aui-nav-selected > a,
-body .hc-tab:nth-of-type(4n).aui-nav-selected > a {
-    background-color: #4527A0;
-}
-
-/* red */
-#hipchat .hc-tab:nth-of-type(5n):hover > a,
-body .hc-tab:nth-of-type(5n):hover > a,
-#hipchat .hc-tab:nth-of-type(5n).aui-nav-selected > a,
-body .hc-tab:nth-of-type(5n).aui-nav-selected > a {
-    background-color: #D32F2F;
-}
-
-/* light blue */
-#hipchat .hc-tab:nth-of-type(6n):hover > a,
-body .hc-tab:nth-of-type(6n):hover > a,
-#hipchat .hc-tab:nth-of-type(6n).aui-nav-selected > a,
-body .hc-tab:nth-of-type(6n).aui-nav-selected > a {
-  background-color: #17A4D0;
-}
-
-
-/* mentions and new messages */
-#hipchat .hc-tab .hc-badge, 
-body .hc-tab .hc-badge {
-    background-color: #777;
-    font-weight: 600;
-    right: 0;
-    border-radius: 50%;
-    font-size: 10px;
-    top: .5em;;
-    z-index: 1;
-    min-height: 1.5em;
-    padding: .5em .5em 0;
-    text-align: center;
-}
-
-#hipchat .hc-tab .hc-badge.hc-mention, 
-body .hc-tab .hc-badge.hc-mention,
-.aui-header .aui-button:hover {
-    background-color: #17A4D0;
-    color: #C5D6E4;
-}
-
-/* mentions and alerts 
-    ( 2 )
-*/
-.aui-header .aui-button.aui-button-primary,
-#hipchat .hc-tab .hc-badge.hc-mention, 
-body .hc-tab .hc-badge.hc-mention {
-    background-color: #17a4d0;
-    
-    
-}
-
-/* end of mentions and new messages */
-
-/* sidebar sections 
-
-private PM and rooms
-#########################################
-*/
-
-body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
-    background-color: #17A4D0;
-    
-}
-
-
 
 
 /* chat messages 
@@ -394,19 +596,43 @@ body.dark #hipchat .hc-left-sidebar-col .hc-sidebar .hc-tab:hover {
     border-bottom-color: #17A4D0;
 }
 
+/* messages that the you the current user has sent */
 .hc-msg-blue {
+/*  background-color: #E4EBF2; */
+/*     background-color: #779CBE; */
+    
+/*     box-shadow: inset 3px 0px 3px rgba( 0,0,0, 0.5 ); */
+    
+    
+/*     border-left: .5em solid  #779CBE; */
+background-color: #e3f2fd;
 
-    box-shadow: inset 3px 0px 3px rgba( 0,0,0, 0.5 );
 }
 
+/* jira type messages */
+.hc-msg-gray {
+  background: #eee;
+}
 
+.unread-line hr {
+  background-color: #253F56;
+}
 
 .hc-chat-panel .hc-chat-scrollbox, 
 .fake-chat-panel .hc-chat-scrollbox {
-    box-shadow: inset 2px 0px 15px rgba( 0,0,0, 0.5 );
+    box-shadow: inset 0px 1px 10px rgba( 0,0,0, 0.5 );
+    
+/*     filter: drop-shadow( inset 12px 12px 7px rgba(0,0,0,0.5)); */
 
 }
 
+/* @username  which is your user name*/
+.hc-chat-msg .hc-mention-me, 
+.hc-chat-msg .atTagMe {
+/* sales blue */
+    background: #bf360c;
+    border: 1px solid #d84315;
+}
 
 
 /*
@@ -415,5 +641,7 @@ box where you type in your message
 .hc-textwrapper #hc-message-input{ 
    font-size: 16px;
 }
+
+
 
 }
