@@ -74,10 +74,10 @@ decent scroll ontraport styles
 }
 
 ::-webkit-scrollbar:hover {
-  background: transparent;
-/*   width: inital; */
+  background: #F9F9F9;
+  width: inital;
   /*lets treat width and height the same*/
-/*   height: inital; */
+  height: inital;
   border: 1px none #B3B3B3;
 }
 
@@ -100,10 +100,11 @@ decent scroll ontraport styles
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 1px solid #B2B2B2;
-  background: #fff;
+  border: 1px solid #C1C1C1;
+  background: #C1C1C1;
   height: auto;
-  width: auto;
+  width: ;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-corner {
@@ -117,6 +118,37 @@ decent scroll ontraport styles
   /*width: var(--resizer-width);*/
   /*height: var(--resizer-height);*/
   display: none;
+}
+
+/*
+
+ms
+
+https://msdn.microsoft.com/library/hh772048(v=vs.85).aspx
+
+*/
+
+* {
+  /*Specifies the base color of the main elements of a scroll bar.*/
+  scrollbar-base-color: transparent;
+  /* Specifies the color of the track element of a scroll bar. */
+  scrollbar-track-color: transparent;
+  -ms-scrollbar-track-color: transparent;
+  /* Specifies the color of the arrow elements of a scroll arrow. */
+  scrollbar-arrow-color: transparent;
+  -ms-scrollbar-arrow-color: transparent;
+  /* Specifies the color of the scroll box and scroll arrows of a scroll bar. */
+  scrollbar-face-color: #C1C1C1;
+  -ms-scrollbar-face-color: #C1C1C1;
+  /* this doesn't seem to get applied correctly */
+  -ms-scrollbar-darkshadow-color: transparent;
+  scrollbar-darkshadow-color: transparent;
+  -ms-scrollbar-highlight-color: transparent;
+  scrollbar-highlight-color: transparent;
+  /* this doesn't get applied
+    -ms-scrollbar-3dlight-color: red;
+    scrollbar-3dlight-color: red;
+*/
 }
 
 
@@ -641,7 +673,6 @@ box where you type in your message
 .hc-textwrapper #hc-message-input{ 
    font-size: 16px;
 }
-
 
 
 }
